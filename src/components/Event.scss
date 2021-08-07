@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Quicksand:300,400,500,700');
+
+$border-blue: rgba(0, 124, 173, 0.616);
+
+@mixin object($w, $h, $bg) {
+  width: $w;
+  height: $h;
+  background: $bg;
+}
+
+.event_container {
+  display: flex;
+  @include object(95%, 230px, #FFF);
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .25), 0 8px 8px 0 rgba(0, 0, 0, .15);
+  margin: 20px 0;
+  max-width: 750px;
+  border-radius: 1em;
+  border-right: 0.5em solid $border-blue;
+
+
+  .event_bg {
+    @include object(40%, 100%, #333);
+    background-image: url('https://www.pellicaanonline.com.au/wp-content/uploads/2020/12/44a.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+  }
+
+  .event_info {
+    min-width: 60%;
+    padding: 10px 20px;
+    display: inline-block;
+
+    .event_title {
+      display: flex;
+      @include object(100%, 50px, null);
+      align-items: center;
+
+      h4 {
+        font-size: 26px;
+        font-family: 'Quicksand', sans-serif;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    .event_desc {
+      display: flex;
+      @include object(100%, calc(100% - 100px), null);
+
+      p {
+        font-size: 16px;
+        font-weight: 500;
+        color: #565861;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .event_footer {
+      display: flex;
+      @include object(100%, 50px, null);
+      align-items: center;
+      justify-content: space-between;
+
+      .event_date p {
+        font-size: 15px;
+        font-weight: 600;
+        color: #333;
+      }
+
+      .event_more {
+        display: flex;
+        @include object(auto, 100%, null);
+        align-items: center;
+        margin-left: auto;
+        margin-right: 0;
+
+        a.btn_more {
+          display: flex;
+          @include object(auto, 40px, null);
+          align-items: center;
+          padding: 0 15px;
+          text-decoration: none;
+          color: $border-blue;
+          font-size: 16px;
+          font-weight: 600;
+          border-radius: 2em;
+          will-change: background;
+          transition: background .3s, color .2s ease-in;
+          cursor: pointer;
+
+          i.material-icons {
+            font-size: 18px;
+            font-weight: 500;
+            padding: 0 2px;
+          }
+
+          &:hover {
+            background: $border-blue;
+            color: #FFF;
+          }
+        }
+      }
+    }
+  }
+}
+
+// mobile screen
+@media screen and (max-width: 575px) {
+  .event_container {
+    @include object(95%, 480px, #FFF);
+    flex-direction: column;
+    border-right: none;
+    border-bottom: 0.5em solid $border-blue;
+
+    .event_bg {
+      @include object(100%, 250px, null);
+      min-height: 250px;
+      border-top-right-radius: 1em;
+      border-bottom-left-radius: 0;
+    }
+
+    .event_info {
+      @include object(93%, 230px, null);
+    }
+  }
+}
