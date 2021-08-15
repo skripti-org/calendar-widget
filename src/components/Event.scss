@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Quicksand:300,400,500,700');
 
-$border-blue: rgba(0, 124, 173, 0.616);
+$blue: rgba(0, 124, 173, 0.616);
+$purple: #A40E4C;
+$yellow: #E7E247;
+$green: #87BAAB;
+$pink: #F4BFDB;
 
 @mixin object($w, $h, $bg) {
   width: $w;
@@ -11,15 +15,15 @@ $border-blue: rgba(0, 124, 173, 0.616);
 
 .event_container {
   display: flex;
-  @include object(95%, 230px, #FFF);
+  @include object(95%, auto, #FFF);
   border-radius: 2px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .25), 0 8px 8px 0 rgba(0, 0, 0, .15);
   margin: 20px 0;
   max-width: 750px;
   border-radius: 1em;
-  border-right: 0.5em solid $border-blue;
+  border-right: 0.5em solid $blue;
 
-
+  /*
   .event_bg {
     @include object(40%, 100%, #333);
     background-image: url('https://www.pellicaanonline.com.au/wp-content/uploads/2020/12/44a.jpeg');
@@ -28,21 +32,52 @@ $border-blue: rgba(0, 124, 173, 0.616);
     background-repeat: no-repeat;
     border-top-left-radius: 1em;
     border-bottom-left-radius: 1em;
-  }
+  }*/
 
   .event_info {
-    min-width: 60%;
+    //width: 60%;
+    width: 100%;
     padding: 10px 20px;
     display: inline-block;
+    text-align: left;
 
     .event_title {
       display: flex;
       @include object(100%, 50px, null);
       align-items: center;
+      padding-bottom: 0.5em;
 
       h4 {
         font-size: 26px;
         font-family: 'Quicksand', sans-serif;
+      }
+    }
+
+    .event_location {
+      margin-bottom: 2em;
+
+      span.location>h5 {
+        margin: 0;
+        margin-right: 1em;
+        max-width: 70%;
+        display: inline-block;
+        background-color: $purple;
+        color: white;
+        border-radius: 2em;
+        padding: 0.25em 1em 0.25em 1em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      span.date>h5 {
+        margin: 0;
+        max-width: 100%;
+        display: inline-block;
+        background-color: $green;
+        color: white;
+        border-radius: 2em;
+        padding: 0.25em 1em 0.25em 1em;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -51,7 +86,7 @@ $border-blue: rgba(0, 124, 173, 0.616);
 
     .event_desc {
       display: flex;
-      @include object(100%, calc(100% - 100px), null);
+      @include object(100%, auto, null);
 
       p {
         font-size: 16px;
@@ -59,6 +94,8 @@ $border-blue: rgba(0, 124, 173, 0.616);
         color: #565861;
         overflow: hidden;
         text-overflow: ellipsis;
+        margin-top: 0;
+        margin-bottom: 0;
       }
     }
 
@@ -67,6 +104,7 @@ $border-blue: rgba(0, 124, 173, 0.616);
       @include object(100%, 50px, null);
       align-items: center;
       justify-content: space-between;
+      margin-bottom: 0.25em;
 
       .event_date p {
         font-size: 15px;
@@ -87,7 +125,7 @@ $border-blue: rgba(0, 124, 173, 0.616);
           align-items: center;
           padding: 0 15px;
           text-decoration: none;
-          color: $border-blue;
+          color: $blue;
           font-size: 16px;
           font-weight: 600;
           border-radius: 2em;
@@ -102,7 +140,7 @@ $border-blue: rgba(0, 124, 173, 0.616);
           }
 
           &:hover {
-            background: $border-blue;
+            background: $blue;
             color: #FFF;
           }
         }
@@ -114,20 +152,26 @@ $border-blue: rgba(0, 124, 173, 0.616);
 // mobile screen
 @media screen and (max-width: 575px) {
   .event_container {
-    @include object(95%, 480px, #FFF);
+    @include object(95%, auto, #FFF);
     flex-direction: column;
     border-right: none;
-    border-bottom: 0.5em solid $border-blue;
+    border-bottom: 0.5em solid $blue;
 
+    /*
     .event_bg {
-      @include object(100%, 250px, null);
+      @include object(100%, auto, null);
       min-height: 250px;
       border-top-right-radius: 1em;
       border-bottom-left-radius: 0;
-    }
+    }*/
 
     .event_info {
-      @include object(93%, 230px, null);
+      width: auto;
+
+      .event_title h4 {
+        font-size: 20px;
+        font-family: 'Quicksand', sans-serif;
+      }
     }
   }
 }

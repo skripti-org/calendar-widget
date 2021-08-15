@@ -14,9 +14,6 @@
 }
 
 .App-info {
-  display: flex;
-  flex-direction: column;
-  align-items: right;
   color: darkgray;
 }
 

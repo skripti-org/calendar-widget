@@ -5,14 +5,14 @@ import './EventMapper.scss'
 export default function EventMapper(props) {
   return (
     <div className="card-container">
-      {props.events.map((event) => {
+      {props.events[0].items.map((event) => {
         return (
           <Event
             key={event.id}
-            title={event.title}
+            title={event.summary}
             desc={event.description}
-            date={event.date}
-            time={event.time}
+            date={event.start.dateTime}
+            location={event.location}
           />
         )
       })}
