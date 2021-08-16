@@ -1,5 +1,6 @@
 import React from 'react'
 import Moment from 'react-moment'
+import ReactHtml from 'html-react-parser'
 import 'moment/locale/fi'
 import './Event.scss'
 
@@ -17,14 +18,10 @@ export default function Event(props) {
   const date = () => {
     // dddd[na] -> tiistaina
     if (props.date) {
-      return( 
-      <Moment
-        element="h5"
-        format=" [klo] HH:mm, DD.MM.YYYY"
-        locale="fi"
-      >
-        {props.date}
-      </Moment>
+      return (
+        <Moment element="h5" format=" [Klo] HH:mm, DD.MM.YYYY" locale="fi">
+          {props.date}
+        </Moment>
       )
     }
   }
@@ -39,22 +36,21 @@ export default function Event(props) {
           </div>
 
           <div className="event_location">
-            <span className="location">
-              {location()}
-            </span>
-            <span className="date">
-              {date()}
-            </span>
+            <span className="location">{location()}</span>
+            <span className="date">{date()}</span>
           </div>
 
-          <div className="event_desc">
-            <p>{props.desc}</p>
-          </div>
+          {props.desc && (
+            <div className="event_desc">
+              {/*korvataan rivinvaihdot <br>*/}
+              <p>{ReactHtml(props.desc.replace(/\n/g, '<br />'))}</p>
+            </div>
+          )}
 
           <div className="event_footer">
             <div className="event_more">
               <a href={props.url} className="btn_more">
-                Kalenteriin
+                Lue lisää
               </a>
             </div>
           </div>
