@@ -26,6 +26,14 @@ export default function Event(props) {
     }
   }
 
+  const duration = () => {
+    return (
+      <Moment element="span" diff={props.date} unit="hours">
+          {props.endingDate}
+      </Moment>
+    )
+  }
+
   return (
     <>
       <div className="event_container">
@@ -38,6 +46,7 @@ export default function Event(props) {
           <div className="event_location">
             <span className="location">{location()}</span>
             <span className="date">{date()}</span>
+            <span className="duration"><h5>{duration()} h</h5></span>
           </div>
 
           {props.desc && (
