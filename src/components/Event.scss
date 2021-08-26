@@ -3,9 +3,9 @@
 
 $blue: rgba(0, 124, 173, 0.616);
 $purple: #A40E4C;
-$yellow: #E7E247;
+$yellow: #e7984e;
 $green: #87BAAB;
-$pink: #F4BFDB;
+$pink: #e0a2c3;
 
 @mixin object($w, $h, $bg) {
   width: $w;
@@ -96,6 +96,21 @@ $pink: #F4BFDB;
         text-overflow: ellipsis;
         white-space: nowrap;
       }
+
+      span.day>h5 {
+        margin: 0;
+        margin-right: 1em;
+        max-width: 100%;
+        display: inline-block;
+        background-color: $pink;
+        color: white;
+        border-radius: 2em;
+        padding: 0.25em 1em 0.25em 1em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
     }
 
     .event_desc {
