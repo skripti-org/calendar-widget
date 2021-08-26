@@ -43,13 +43,14 @@ export default function Event(props) {
     }
   }
 
+  /*
   const duration = () => {
     return (
       <Moment element="span" diff={props.date} unit="hours">
         {props.endingDate}
       </Moment>
     )
-  }
+  }*/
 
   const description = () => {
     if (props.desc) {

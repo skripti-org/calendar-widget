@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       {loading ? (
-        <div>Ladataan :-)</div>
+        <em>Ladataan :-)</em>
       ) : (
         <div>
           <EventMapper events={events} />
